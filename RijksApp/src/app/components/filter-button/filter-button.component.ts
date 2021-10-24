@@ -15,7 +15,6 @@ export class FilterButtonComponent implements OnInit {
   }
 
   onClick(e: any){
-    console.log('filter clicked');
     this.filterClicked.emit(e);
   }
 }

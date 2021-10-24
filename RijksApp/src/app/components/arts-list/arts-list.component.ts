@@ -58,7 +58,6 @@ export class ArtsListComponent implements OnInit {
   state: any;
   ngOnInit(): void {
     this.state = this.stateService.state$.getValue() || {};
-    console.log('state', this.state);
     this.artsList = this.state.artsList || this.artsList;
     this.filters = this.state.filters || this.filters;
     this.selectedFilter = this.state.selectedFilter || this.selectedFilter;
@@ -99,7 +98,6 @@ export class ArtsListComponent implements OnInit {
   searchData(e: string) {
     var that = this;
     if (this.search !== e) this.newSearch = true;
-    console.log('search data sort: ' + this.selectedFilter.sort)
     this.artService
       .getArts(e, 'en', null, this.pagNumber, 10,
         this.selectedFilter.involvedMaker!, this.selectedFilter.type!, this.selectedFilter.material!,
@@ -125,7 +123,6 @@ export class ArtsListComponent implements OnInit {
             scrollY: that.scrollY
           };
           that.stateService.state$.next(that.state);
-          console.log(that.stateService);
         },
         error(msg) {
           console.log(msg);

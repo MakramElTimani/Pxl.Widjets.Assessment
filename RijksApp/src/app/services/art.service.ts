@@ -26,10 +26,8 @@ export class ArtService {
     if(normalized32ColorHex /*&& this.isHex(normalized32ColorHex)*/) baseUrl += `&f.normalized32Colors.hex=${normalized32ColorHex.trim()}`
     baseUrl += `&imgonly=${imgonly}`
     baseUrl += `&toppieces=${toppieces}`
-    console.log('sort', sort)
     if(sort && this.isValidSortString(sort)) baseUrl += `&s=${sort.toLocaleLowerCase()}`
         
-    console.log(baseUrl);
 
     return this.http.get<ArtResponse>(baseUrl);
   }

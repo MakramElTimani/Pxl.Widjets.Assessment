@@ -25,7 +25,6 @@ export class ArtDetailsComponent implements OnInit {
       next(response){
         that.artDetailsResponse = response;
         that.artDetailsResponse!.artObject.acquisition.date = new Date(that.artDetailsResponse!.artObject.acquisition.date).toLocaleDateString()
-        console.log(that.artDetailsResponse)
       }
     });
   }

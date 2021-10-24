@@ -29,7 +29,6 @@ export class ColorFilterComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    console.log(this.selectedColor)
     if(this.selectedColor){
       var color = this.selectedColor!;
       setTimeout(function(){
