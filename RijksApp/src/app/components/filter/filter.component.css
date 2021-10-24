@@ -1,0 +1,61 @@
+.filter-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
+}
+.filter-container .filter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 70%;
+  border-radius: 10px;
+  background-color: white;
+  min-height: 400px;
+  padding: 20px;
+  padding-bottom: 50px;
+}
+.filter-container .filter .filter-header {
+  margin-bottom: 20px;
+}
+.filter-container .filter .filter-header .filter-header-title {
+  font-size: 25px;
+  font-weight: bold;
+  display: inline-block;
+  width: 50%;
+}
+.filter-container .filter .filter-header .filter-header-actions {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+}
+.filter-container .filter .filter-header .filter-header-actions button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 5px 7px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+.filter-container .filter .filter-header .filter-header-actions button span {
+  display: inline-block;
+  line-height: 24px;
+  height: 24px;
+  margin-left: 5px;
+}
+.filter-container .filter .filter-body {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 20px;
+  padding-right: 20px;
+}

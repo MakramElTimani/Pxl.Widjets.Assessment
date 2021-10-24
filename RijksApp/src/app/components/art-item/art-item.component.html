@@ -1,0 +1,10 @@
+<a routerLink="{{'/art-details/' + artItem!.objectNumber}}" class="art-item has-box-shadow">
+    <div class="art-card">
+        <img src="{{artItem!.webImage!.url}}"/>
+        <div class="card-body">
+            <h2>{{artItem!.title}}</h2>
+            <h3>{{artItem!.longTitle}}</h3>
+            <p *ngIf="artItem!.productionPlaces.length > 0">Place: {{artItem!.productionPlaces!.join(', ')}}</p>
+        </div>
+    </div>
+</a>

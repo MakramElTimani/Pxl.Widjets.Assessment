@@ -1,0 +1,59 @@
+<div *ngIf="artDetailsResponse !== undefined; else loading" class="art-details-container animate__animated animate__fadeIn">
+    <div 
+        class="art-details-img-container" 
+        [style.height]="artDetailsResponse!.artObject.webImage.height > maxHeight ? '80vh' : artDetailsResponse!.artObject.webImage.height + 'px'"
+        [style.background]="'url('+artDetailsResponse!.artObject.webImage.url+') 100%'">
+        <!-- <img src="{{artDetailsResponse!.artObject.webImage.url}}" alt="{{artDetailsResponse!.artObject.title}}"/> -->
+        <button class="search-button" (click)="back()"> 
+            <mat-icon aria-hidden="false" aria-label="open_in_new">chevron_left</mat-icon>
+            Back to Search
+        </button>
+        <a class="full-screen-button" href="{{artDetailsResponse!.artObject.webImage.url}}" target="_blank">
+            <mat-icon aria-hidden="false" aria-label="open_in_new">open_in_new</mat-icon>
+            View Image
+        </a>
+    </div>
+
+    <div class="art-content container">
+        <div class="content art-details has-box-shadow">
+            <h1>Piece Details</h1>
+            <h2 *ngFor="let title of artDetailsResponse!.artObject.titles">Title: {{title}}</h2>
+            <h3>
+                by {{artDetailsResponse!.artObject.principalOrFirstMaker}}
+                <em *ngIf="artDetailsResponse!.artObject.dimensions.length > 1">
+                    {{artDetailsResponse!.artObject.dimensions[0].value}}{{artDetailsResponse!.artObject.dimensions[0].unit}}
+                    {{artDetailsResponse!.artObject.dimensions[0].type === 'height' ? 'h' : 'w'}}
+                     x 
+                    {{artDetailsResponse!.artObject.dimensions[1].value}}{{artDetailsResponse!.artObject.dimensions[1].unit}}
+                    {{artDetailsResponse!.artObject.dimensions[1].type === 'height' ? 'h' : 'w'}}
+                </em>
+            </h3>   
+            <p>{{artDetailsResponse!.artObjectPage.plaqueDescription}}</p>
+
+            <h4>Materials: {{artDetailsResponse!.artObject.materials.join(', ')}}</h4>
+            <h4 *ngIf="artDetailsResponse!.artObject.acquisition">
+                Acquired on {{artDetailsResponse!.artObject.acquisition.date}} by method of {{artDetailsResponse!.artObject.acquisition.method}}
+                <div>
+                    Credit line: {{artDetailsResponse!.artObject.acquisition.creditLine}}
+                </div>
+            </h4>
+
+            <p>
+                Year presented: {{artDetailsResponse!.artObject.dating.presentingDate}} <br/>
+                Period: {{artDetailsResponse!.artObject.dating.period}} century
+            </p>
+
+            <p class="location">
+                On display at {{artDetailsResponse!.artObject.location}}
+            </p>
+        </div>
+        <div class="content art-statistics has-box-shadow">
+            <h1>Piece Statistics</h1>
+            <app-art-colors-graph [artDetailsResponse]="artDetailsResponse"></app-art-colors-graph>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    Loading...
+</ng-template>

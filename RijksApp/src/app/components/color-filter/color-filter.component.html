@@ -1,0 +1,9 @@
+<div class="color-list">
+    <div 
+        *ngFor="let color of colorList" 
+        class="color-item" 
+        [style.background-color]="color.key" 
+        (click)="colorItemSelected($event, color)"
+        [attr.data-color]="color.key.trim()">
+    </div>
+</div>

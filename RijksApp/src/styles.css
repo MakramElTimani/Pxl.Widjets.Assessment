@@ -1,0 +1,75 @@
+@import '~animate.css/animate.min.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAw.ttf) format('truetype');
+}
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Roboto;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 10px);
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+header {
+  width: 100%;
+  z-index: 999;
+  height: 67px;
+  background-color: white;
+  margin: 10px 0;
+}
+.container {
+  width: 90%;
+  height: 100%;
+  position: relative;
+  margin: auto;
+}
+@media screen and (max-width: 450px) {
+  .container {
+    width: calc(100% - 20px);
+  }
+}
+.has-box-shadow {
+  box-shadow: 0px 2px 20px 0px #bbbbbb;
+}
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+/* All delay classes will take half the time to start */
+:root {
+  --animate-delay: 1s;
+  --animate-duration: 2s;
+}

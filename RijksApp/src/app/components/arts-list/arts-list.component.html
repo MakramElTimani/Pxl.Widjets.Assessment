@@ -1,0 +1,15 @@
+<header>
+    <app-search-field (enterPressed)="enterPressed($event)" [search]="search"></app-search-field>
+    <app-filter-button (filterClicked)="toggleFilter()"></app-filter-button>
+</header>
+<ngx-masonry [options]="myOptions" class="art-list" [ordered]="true" >
+    <div ngxMasonryItem *ngFor="let artItem of artsList" class="masonry-item">
+        <app-art-item  [artItem]="artItem"></app-art-item>
+    </div>
+</ngx-masonry>
+<app-filter 
+    (closeClicked)="toggleFilter()" 
+    [filters]="filters" 
+    [selectedFilter]="selectedFilter" 
+    (showMatchesClicked)="showMatches($event)">
+</app-filter>

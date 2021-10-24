@@ -1,0 +1,38 @@
+.art-item {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  outline: none;
+  text-decoration: none;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.art-item .art-card img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+.art-item .art-card .card-body {
+  padding: 20px;
+  padding-bottom: 40px;
+  border-top: none;
+}
+.art-item .art-card .card-body h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: black;
+}
+.art-item .art-card .card-body h3 {
+  margin-bottom: 15px;
+  color: lightslategray;
+}
+.art-item .art-card .card-body p {
+  font-size: 12px;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #aaa04d;
+  margin: 0;
+  color: white;
+}

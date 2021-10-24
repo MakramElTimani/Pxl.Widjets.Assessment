@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@import '~animate.css/animate.min.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: Roboto;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 10px);
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+header{
+    width: 100%;
+    z-index: 999;
+    height: 67px;
+    background-color: white;
+    margin: 10px 0;
+
+}
+
+.container{
+    width: 90%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    @media screen and (max-width: 450px) {
+        width: calc(100% - 20px);
+    }
+}
+
+.has-box-shadow{
+    box-shadow:0px 2px 20px 0px #bbbbbb
+}
+
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+
+/* All delay classes will take half the time to start */
+:root {
+    --animate-delay: 1s;
+    --animate-duration: 2s;
+}

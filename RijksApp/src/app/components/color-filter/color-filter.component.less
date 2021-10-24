@@ -1,0 +1,39 @@
+.color-list {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(6, 50px);
+
+  .color-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: gray;
+    position: relative;
+    border: 1px solid #eee;
+
+    &.selected::before {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      height: 10px;
+      width: 3px;
+      background-color: #336699;
+      content: "";
+      transform: translateX(7px) rotate(-45deg);
+      transform-origin: left bottom;
+    }
+
+    &.selected::after {
+      position: absolute;
+      left: 0;
+      top: 11px;
+      height: 3px;
+      width: 17px;
+      background-color: #336699;
+      content: "";
+      transform: translateX(7px) rotate(-45deg);
+      transform-origin: left bottom;
+    }
+  }
+}
