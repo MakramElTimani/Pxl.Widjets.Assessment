@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Facet } from 'src/app/interfaces/facet';
 import { FacetList } from 'src/app/interfaces/facet-list';
 import { SelectedFilter } from 'src/app/interfaces/selected-filter';
@@ -18,10 +18,18 @@ export class FilterComponent implements OnInit {
   principalMakers: Facet[] = [];
   types: Facet[] = [];
   datingPeriod: Facet[] = [];
-  places: Facet[] = [];
+  // places: Facet[] = [];
   materials: Facet[] = this.filters.length > 0 ? this.filters.find(x => x.name === 'material')!.facets : [];
   techniques: Facet[] = [];
   normalized32ColorsHex: Facet[] = [];
+  sortOptions: any[] = [
+    {key: "relevance", label: 'Relevance' },
+    {key: "objecttype", label: 'Type of Work' },
+    {key: "chronologic", label: 'Oldest first' },
+    {key: "achronologic", label: 'Newest first' },
+    {key: "artist", label: 'Artist (a-z)' },
+    {key: "artistdesc", label: 'Artist (z-a)' }
+  ]
 
   @Input() selectedFilter: SelectedFilter = {
     involvedMaker: undefined,
@@ -37,6 +45,8 @@ export class FilterComponent implements OnInit {
 
   @Output() showMatchesClicked = new EventEmitter<SelectedFilter>();
   @Output() closeClicked = new EventEmitter();
+
+  @ViewChild('typeSelect') typeSelect: any;
 
   changeSelect(e: any, data: string){
     type x = keyof SelectedFilter;
@@ -61,7 +71,7 @@ export class FilterComponent implements OnInit {
 
   setFilters() : void{
     this.materials = this.filters.find(x => x.name === 'material')!.facets;
-    this.places = this.filters.find(x => x.name === 'place')!.facets;
+    // this.places = this.filters.find(x => x.name === 'place')!.facets;
     this.principalMakers = this.filters.find(x => x.name === 'principalMaker')!.facets;
     this.techniques = this.filters.find(x => x.name === 'technique')!.facets;
     this.types = this.filters.find(x => x.name === 'type')!.facets;
@@ -76,7 +86,9 @@ export class FilterComponent implements OnInit {
       });
     }
     this.datingPeriod = this.filters.find(x => x.name === 'dating.period')!.facets;
+
   }
+
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.filters && changes.filters.currentValue.length > 0) {

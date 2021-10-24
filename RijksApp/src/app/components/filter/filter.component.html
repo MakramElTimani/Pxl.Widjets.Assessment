@@ -22,14 +22,16 @@
                 <h4>Principal Maker</h4>
                 <ng-select [items]="principalMakers" 
                             bindLabel="key" 
-                            bindValue="value" (change)="changeSelect($event, 'involvedMaker')">
+                            bindValue="key" (change)="changeSelect($event, 'involvedMaker')"
+                            [(ngModel)]="selectedFilter.involvedMaker">
                 </ng-select>
             </div>
             <div class="filter-item">
                 <h4>Type</h4>
                 <ng-select [items]="types" 
                             bindLabel="key" 
-                            bindValue="value" (change)="changeSelect($event, 'type')">
+                            bindValue="key" (change)="changeSelect($event, 'type')"
+                            [(ngModel)]="selectedFilter.type">
                 </ng-select>
             </div>
             <div class="filter-item">
@@ -38,27 +40,42 @@
                     <ng-option *ngFor="let period of datingPeriod" [value]="period">{{period.key + 'th century'}}</ng-option>
                 </ng-select>
             </div>
-            <div class="filter-item">
+            <!-- <div class="filter-item">
                 <h4>Place</h4>
                 <ng-select [items]="places" 
                             bindLabel="key" 
-                            bindValue="value" (change)="changeSelect($event, 'place')">
+                            bindValue="key" (change)="changeSelect($event, 'place')"
+                            >
                 </ng-select>
-            </div>
+            </div> -->
             <div class="filter-item">
                 <h4>Material</h4>
                 <ng-select [items]="materials" 
                             bindLabel="key" 
-                            bindValue="value" (change)="changeSelect($event, 'material')">
+                            bindValue="key" (change)="changeSelect($event, 'material')"
+                            [(ngModel)]="selectedFilter.material">
                 </ng-select>
             </div>
             <div class="filter-item">
                 <h4>Technique</h4>
                 <ng-select [items]="techniques" 
                             bindLabel="key" 
-                            bindValue="value" (change)="changeSelect($event, 'technique')">
+                            bindValue="key" (change)="changeSelect($event, 'technique')"
+                            [(ngModel)]="selectedFilter.technique">
                 </ng-select>
             </div>
+            
+            <div class="filter-item">
+                <h4>Sort by</h4>
+                <ng-select 
+                    (change)="changeSelect($event, 'sort')"
+                    [items]="sortOptions"
+                    bindLabel="label"
+                    bindValue="key"
+                    [(ngModel)]="selectedFilter.sort">
+                </ng-select>
+            </div>
+
             <div class="filter-item">
                 <h4>Color</h4>
                 <app-color-filter 
@@ -66,19 +83,6 @@
                     [selectedColor]="selectedFilter.normalized32ColorHex"
                     (colorSelected)="changeSelect($event, 'normalized32ColorHex')">
                 </app-color-filter>
-            </div>
-            
-            <div class="filter-item">
-                <h4>Sort by</h4>
-                <ng-select (change)="changeSelect($event, 'sort')">
-                    <ng-option [value]="''">Default</ng-option>
-                    <ng-option [value]="'relevance'">Relevance</ng-option>
-                    <ng-option [value]="'objecttype'">Type of Work</ng-option>
-                    <ng-option [value]="'chronologic'">Oldest first</ng-option>
-                    <ng-option [value]="'achronologic'">Newest first</ng-option>
-                    <ng-option [value]="'artist'">Artist (a-z)</ng-option>
-                    <ng-option [value]="'artistdesc'">Artist (z-a)</ng-option>
-                </ng-select>
             </div>
         </div>
     </div>
