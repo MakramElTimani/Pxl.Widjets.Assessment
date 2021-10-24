@@ -1,0 +1,31 @@
+.art-details-img-container{
+    overflow: hidden;
+    position: relative;
+    img{
+        max-width: 100%;
+    }
+    button, a{
+        padding: 15px 20px;
+        background-color: rgba(78, 78, 78, 0.8);
+        color: white;
+        font-size: 15px;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        text-decoration: none;
+        line-height: 24px;
+        display: grid;
+        grid-template-columns: 24px calc(100% - 24px);
+        grid-gap: 5px;
+    }
+    .search-button{
+        position: absolute;
+        top: 50px;
+        left: 5%;
+    }
+    .full-screen-button{
+        position: absolute;
+        bottom: 50px;
+        right: 5%;
+    }
+}

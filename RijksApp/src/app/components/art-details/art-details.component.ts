@@ -13,15 +13,9 @@ export class ArtDetailsComponent implements OnInit {
 
   objectNumber: string = '';
   artDetailsResponse: ArtDetailsResponse | undefined;
-  maxHeight: number = window.innerHeight;
 
-  private history: string[] = []
-  constructor(private router: ActivatedRoute, private artService: ArtService, private location: Location, private thisRouter: Router) { 
-    this.thisRouter.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.history.push(event.urlAfterRedirects)
-      }
-    })
+  constructor(private router: ActivatedRoute, private artService: ArtService) { 
+    
   }
 
   ngOnInit(): void {
@@ -34,14 +28,5 @@ export class ArtDetailsComponent implements OnInit {
         console.log(that.artDetailsResponse)
       }
     });
-  }
-
-  back(): void {
-    this.history.pop()
-    if (this.history.length > 0) {
-      this.location.back()
-    } else {
-      this.thisRouter.navigateByUrl('/')
-    }
   }
 }

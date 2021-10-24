@@ -1,0 +1,31 @@
+<h1>Piece Details</h1>
+<h2 *ngFor="let title of artObject!.titles">Title: {{title}}</h2>
+<h3>
+    by {{artObject!.principalOrFirstMaker}}
+    <em *ngIf="artObject!.dimensions.length > 1">
+        {{artObject!.dimensions[0].value}}{{artObject!.dimensions[0].unit}}
+        {{artObject!.dimensions[0].type === 'height' ? 'h' : 'w'}}
+        x
+        {{artObject!.dimensions[1].value}}{{artObject!.dimensions[1].unit}}
+        {{artObject!.dimensions[1].type === 'height' ? 'h' : 'w'}}
+    </em>
+</h3>
+<p>{{artObjectPage!.plaqueDescription}}</p>
+
+<h4>Materials: {{artObject!.materials.join(', ')}}</h4>
+<h4 *ngIf="artObject!.acquisition">
+    Acquired on {{artObject!.acquisition.date}} by method of
+    {{artObject!.acquisition.method}}
+    <div>
+        Credit line: {{artObject!.acquisition.creditLine}}
+    </div>
+</h4>
+
+<p>
+    Year presented: {{artObject!.dating.presentingDate}} <br />
+    Period: {{artObject!.dating.period}} century
+</p>
+
+<p class="location">
+    On display at {{artObject!.location}}
+</p>

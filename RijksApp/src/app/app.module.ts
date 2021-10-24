@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { ColorFilterComponent } from './components/color-filter/color-filter.component';
 import { ArtColorsGraphComponent } from './components/art-colors-graph/art-colors-graph.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { ArtDetailsImageComponent } from './components/art-details-image/art-details-image.component';
+import { ArtDetailsPieceInfoComponent } from './components/art-details-piece-info/art-details-piece-info.component';
 
 const appRoutes: Routes = [
   {
@@ -43,7 +45,9 @@ const appRoutes: Routes = [
     ArtItemComponent,
     FilterComponent,
     ColorFilterComponent,
-    ArtColorsGraphComponent
+    ArtColorsGraphComponent,
+    ArtDetailsImageComponent,
+    ArtDetailsPieceInfoComponent
   ],
   imports: [
     BrowserModule,
