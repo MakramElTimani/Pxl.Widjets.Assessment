@@ -1,7 +1,8 @@
 <div 
 class="art-details-img-container" 
 [style.height]="webImage!.height > maxHeight ? '80vh' : webImage!.height + 'px'"
-[style.background]="'url('+webImage!.url+') 100%'">
+[style.background]="'url('+webImage!.url+') center center fixed no-repeat'"
+[style.background-size]="'cover'">
     <!-- <img src="{{artDetailsResponse!.artObject.webImage.url}}" alt="{{artDetailsResponse!.artObject.title}}"/> -->
     <button class="search-button" (click)="back()"> 
         <mat-icon aria-hidden="false" aria-label="open_in_new">chevron_left</mat-icon>

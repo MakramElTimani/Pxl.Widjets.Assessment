@@ -1,6 +1,6 @@
 <a routerLink="{{'/art-details/' + artItem!.objectNumber}}" class="art-item has-box-shadow">
     <div class="art-card">
-        <img src="{{artItem!.webImage!.url}}"/>
+        <img src="{{artItem!.webImage!.url}}" masonryLazy loading="lazy"/>
         <div class="card-body">
             <h2>{{artItem!.title}}</h2>
             <h3>{{artItem!.longTitle}}</h3>

@@ -1,7 +1,7 @@
 import { animate, style } from '@angular/animations';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit, HostListener } from '@angular/core';
-import { NgxMasonryOptions } from 'ngx-masonry';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { NgTypeToSearchTemplateDirective } from '@ng-select/ng-select/lib/ng-templates.directive';
+import { NgxMasonryComponent, NgxMasonryOptions } from 'ngx-masonry';
 import { ArtObject } from 'src/app/interfaces/art-object';
 import { FacetList } from 'src/app/interfaces/facet-list';
 import { SelectedFilter } from 'src/app/interfaces/selected-filter';
@@ -42,11 +42,17 @@ export class ArtsListComponent implements OnInit {
       ]
     }
   };
+  // get reference
+  @ViewChild(NgxMasonryComponent) masonry: NgxMasonryComponent | undefined;
 
   pagNumber: number = 0;
   search: string = '';
 
   scrollY: number = 0;
+
+  doStuff(e: any){
+    this.masonry?.layout();
+  }
 
   constructor(private artService: ArtService, private stateService: StateService) { }
   state: any;
@@ -65,6 +71,7 @@ export class ArtsListComponent implements OnInit {
     setTimeout(function(){
       window.scroll(0, scroll);
     }, 100);
+
   }
 
   newSearch: boolean = false;
