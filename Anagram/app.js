@@ -1,4 +1,3 @@
-const fs = require('fs');
 
 function listAnagrams(input){
     var anagrams = [];
@@ -31,6 +30,7 @@ function listAnagrams(input){
 }
 
 
+const fs = require('fs');
 fs.readdir('tests', (err, files) => {
     if(err)
      return;
@@ -42,4 +42,13 @@ fs.readdir('tests', (err, files) => {
      })
 })
 
-// console.log(listAnagrams(input));
+// console.log(listAnagrams([ 
+//     "rope", 
+//     "pore",  
+//     "repo", 
+//     "red rum", 
+//     "murder", 
+//     "listen", 
+//     "silent",  
+//     "endeavour" 
+// ]));

@@ -9,6 +9,35 @@ node app.js
 ```
 If you want to add your own tests, you can add a json file with an array inside the tests folder in the Anagrams folder following the other examples 
 
+If you just want to run the app without file tests:
+
+Comment out this code block:
+```
+const fs = require('fs');
+fs.readdir('tests', (err, files) => {
+    if(err)
+     return;
+    
+     files.forEach(file => {
+        let rawdata = fs.readFileSync(`tests/${file}`);
+        let input = JSON.parse(rawdata)
+        console.log(listAnagrams(input))
+     })
+})
+```
+and uncomment this code block:
+```
+console.log(listAnagrams([ 
+    "rope", 
+    "pore",  
+    "repo", 
+    "red rum", 
+    "murder", 
+    "listen", 
+    "silent",  
+    "endeavour" 
+]));
+```
 
 
 ## Rijks Search Web App
