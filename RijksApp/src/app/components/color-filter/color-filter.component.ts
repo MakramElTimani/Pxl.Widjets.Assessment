@@ -23,7 +23,7 @@ export class ColorFilterComponent implements OnInit {
     document.querySelectorAll('.color-item').forEach(item => {
       item.classList.remove('selected');
     })
-
+    color.key = color.key.trim();
     e.target.classList.add('selected');
     this.colorSelected.emit(color);
   }
@@ -33,7 +33,7 @@ export class ColorFilterComponent implements OnInit {
       var color = this.selectedColor!;
       setTimeout(function(){
         var item = document.querySelector(`.color-item[data-color="${color.trim()}"]`) as HTMLElement;
-        item.classList.add('selected');
+        if(item) item.classList.add('selected');
       }, 500)
     }
   }

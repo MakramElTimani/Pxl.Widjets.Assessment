@@ -23,11 +23,10 @@ export class ArtService {
     if(material) baseUrl += `&material=${material}`
     if(technique) baseUrl += `&technique=${technique}`
     if(datingPeriod! && datingPeriod! >= 0 && datingPeriod! <= 21) baseUrl += `&datingPeriod=${datingPeriod!}`
-    if(normalized32ColorHex /*&& this.isHex(normalized32ColorHex)*/) baseUrl += `&f.normalized32Colors.hex=${normalized32ColorHex.trim()}`
+    if(normalized32ColorHex /*&& this.isHex(normalized32ColorHex)*/) baseUrl += `&f.normalized32Colors.hex=+${encodeURIComponent(normalized32ColorHex.trim())}`
     baseUrl += `&imgonly=${imgonly}`
     baseUrl += `&toppieces=${toppieces}`
     if(sort && this.isValidSortString(sort)) baseUrl += `&s=${sort.toLocaleLowerCase()}`
-        
 
     return this.http.get<ArtResponse>(baseUrl);
   }

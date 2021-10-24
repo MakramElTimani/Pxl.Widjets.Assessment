@@ -41,7 +41,7 @@ export class FilterComponent implements OnInit {
   changeSelect(e: any, data: string){
     type x = keyof SelectedFilter;
     let str = data as x;
-    this.selectedFilter[str] = e.key || e as string;
+    this.selectedFilter[str] = e.key ? e.key : e as string;
   }
 
   showMatches(){

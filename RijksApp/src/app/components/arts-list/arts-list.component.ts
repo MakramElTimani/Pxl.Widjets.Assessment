@@ -47,6 +47,7 @@ export class ArtsListComponent implements OnInit {
 
   pagNumber: number = 0;
   search: string = '';
+  newSearch: boolean = false;
 
   scrollY: number = 0;
 
@@ -73,8 +74,6 @@ export class ArtsListComponent implements OnInit {
 
   }
 
-  newSearch: boolean = false;
-
   enterPressed(e: string){
     this.selectedFilter = {
       datingPeriod: undefined,
@@ -98,6 +97,7 @@ export class ArtsListComponent implements OnInit {
   searchData(e: string) {
     var that = this;
     if (this.search !== e) this.newSearch = true;
+    this.search = e;
     this.artService
       .getArts(e, 'en', null, this.pagNumber, 10,
         this.selectedFilter.involvedMaker!, this.selectedFilter.type!, this.selectedFilter.material!,
